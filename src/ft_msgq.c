@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/01 22:44:56 by sconso            #+#    #+#             */
-/*   Updated: 2014/06/01 22:45:41 by sconso           ###   ########.fr       */
+/*   Updated: 2014/06/01 23:27:31 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,6 @@ void			listen_lead(t_info *info)
 	msgrcv(info->msgqid, &buf, size, info->team, IPC_NOWAIT);
 	if (buf.coord.x == -1)
 	{
-		printf("\033[%dA\033[K", info->game->height + 2);
-		printf("\033[31mI'm the lead now !\033[0m\n");
 		info->lead = 1;
 		find(info);
 		return ;

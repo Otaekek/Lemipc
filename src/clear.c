@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/01 22:43:47 by sconso            #+#    #+#             */
-/*   Updated: 2014/06/01 22:43:48 by sconso           ###   ########.fr       */
+/*   Updated: 2014/06/01 23:24:16 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void			shmclear(t_info **info, char state)
 	(*info)->game->players--;
 	(*info)->game->map[(*info)->y][(*info)->x] = -1;
 	tell(*info, -1, -1);
+	sem_op((*info)->semid, 1);
 	if ((*info)->game->players <= 0)
 	{
 		shmctl((*info)->shmid, IPC_RMID, NULL);
