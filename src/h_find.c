@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   h_find.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/01 16:44:04 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 19:45:57 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/06/01 22:46:14 by sconso            #+#    #+#             */
+/*   Updated: 2014/06/01 22:46:19 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int		h_find_left(t_info *info, t_coord c, int i)
 	return (0);
 }
 
-int		h_find(t_info *info, t_coord c)
+int				h_find(t_info *info, t_coord c)
 {
 	int			i;
 	t_game		*game;

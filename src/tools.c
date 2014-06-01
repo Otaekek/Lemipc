@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/01 17:40:45 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 17:42:25 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/06/01 22:51:31 by sconso            #+#    #+#             */
+/*   Updated: 2014/06/01 22:51:44 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void				sem_op(int semid, int nb)
 	op.sem_flg = IPC_NOWAIT;
 	semop(semid, &op, 1);
 }
-
 
 int					rand_max(int max)
 {

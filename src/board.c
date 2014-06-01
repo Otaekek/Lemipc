@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   board.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/01 17:01:46 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 21:22:20 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/06/01 22:42:37 by sconso            #+#    #+#             */
+/*   Updated: 2014/06/01 22:43:26 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void			print_board(t_game *game, char clean)
 			if (game->map[i][j] > -1)
 				print_player(game->map[i][j]);
 			else
-				ft_putstr("■ ");
+				ft_putstr("o ");
 		}
 		ft_putstr("\b\n");
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lemipc.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/05/31 14:39:06 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 20:19:36 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/06/01 22:53:02 by sconso            #+#    #+#             */
+/*   Updated: 2014/06/01 22:54:01 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define DOWN 2
 # define LEFT 3
 # define RIGHT 4
-# define TIMEOUT 1500000
+# define TIMEOUT 500000
 
 # include <structs.h>
 # include <sys/types.h>

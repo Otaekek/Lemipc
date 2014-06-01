@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/01 17:13:57 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 19:50:52 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/06/01 22:50:01 by sconso            #+#    #+#             */
+/*   Updated: 2014/06/01 22:50:34 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,11 @@ static int		h_move(t_info *info, int ret)
 	return (0);
 }
 
-void		move(t_info *info, int ret)
+void			move(t_info *info, int ret)
 {
-	t_game	*game;
-
-	game = info->game;
 	if (ret == 0)
 		return ;
-		info->game->map[info->y][info->x] = -1;
+	info->game->map[info->y][info->x] = -1;
 	if (v_move(info, ret) || h_move(info, ret))
 		return ;
 	else

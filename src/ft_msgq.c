@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_msgq.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/01 19:04:12 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 20:54:37 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/06/01 22:44:56 by sconso            #+#    #+#             */
+/*   Updated: 2014/06/01 22:45:41 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static int	is_lead(t_info *info)
+static int		is_lead(t_info *info)
 {
-	t_game	*game;
-	int		i;
-	int		j;
+	t_game		*game;
+	int			i;
+	int			j;
 
 	game = info->game;
 	i = -1;
@@ -69,9 +69,11 @@ void			listen_lead(t_info *info)
 {
 	t_msgbuf	buf;
 	int			direction;
+	int			size;
 
 	direction = 0;
-	msgrcv(info->msgqid, &buf, sizeof(t_msgbuf) - sizeof(long), info->team, IPC_NOWAIT);
+	size = sizeof(t_msgbuf) - sizeof(long);
+	msgrcv(info->msgqid, &buf, size, info->team, IPC_NOWAIT);
 	if (buf.coord.x == -1)
 	{
 		printf("\033[%dA\033[K", info->game->height + 2);

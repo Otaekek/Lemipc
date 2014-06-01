@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/12 18:13:58 by sconso            #+#    #+#             */
-/*   Updated: 2014/06/01 18:58:26 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/06/01 22:45:51 by sconso            #+#    #+#             */
+/*   Updated: 2014/06/01 22:45:59 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static void		ft_handler(int s)
 	else if (s == SIGTTIN || s == SIGTTOU || s == SIGXCPU || s == SIGXFSZ)
 		shmclear(&info, 3);
 }
-
 
 void			ft_signals(void)
 {

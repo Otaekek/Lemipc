@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/01 17:31:06 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 21:14:19 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/06/01 22:46:28 by sconso            #+#    #+#             */
+/*   Updated: 2014/06/01 22:52:11 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,14 @@ static t_info	*init_info(char *team, t_game *game)
 static t_game	*shm_init(char **av, int *shmid)
 {
 	t_game		*game;
+	key_t		key;
 
-	if ((*shmid = shmget(get_key(av[0]), sizeof(t_game), SHM_R | SHM_W)) < 0)
+	key = get_key(av[0]);
+	if ((*shmid = shmget(key, sizeof(t_game), SHM_R | SHM_W)) < 0)
 	{
-		*shmid = shmget(get_key(av[0]), sizeof(t_game), IPC_CREAT | SHM_R | SHM_W);
+		*shmid = shmget(key, sizeof(t_game), IPC_CREAT | SHM_R | SHM_W);
 		ft_assert(*shmid >= 0, "Can't shmget\n");
-		if ((game = (t_game *)shmat(*shmid, NULL, 0)) == (t_game *) -1)
+		if ((game = (t_game *)shmat(*shmid, NULL, 0)) == (t_game *)-1)
 			ft_exit("Can't shmat\n");
 		game->width = WIDTH;
 		game->height = HEIGHT;
@@ -60,7 +62,7 @@ static t_game	*shm_init(char **av, int *shmid)
 	}
 	else
 	{
-		if ((game = (t_game *)shmat(*shmid, NULL, 0)) == (t_game *) -1)
+		if ((game = (t_game *)shmat(*shmid, NULL, 0)) == (t_game *)-1)
 			ft_exit("Can't shmat\n");
 		game->players++;
 		ft_putstr("Hello !\n");
@@ -71,14 +73,16 @@ static t_game	*shm_init(char **av, int *shmid)
 static int		sem_init(char **av)
 {
 	int			semid;
+	key_t		key;
 
-	if ((semid = semget(get_key(av[0]), 1, IPC_R | IPC_W)) < 0)
-    {
-		if ((semid = semget(get_key(av[0]), 1, IPC_CREAT | IPC_R | IPC_W)) == -1)
+	key = get_key(av[0]);
+	if ((semid = semget(key, 1, IPC_R | IPC_W)) < 0)
+	{
+		if ((semid = semget(key, 1, IPC_CREAT | IPC_R | IPC_W)) == -1)
 			ft_exit("Can't semget\n");
 		if (semctl(semid, 0, SETVAL, 1) == -1)
 			ft_exit("Can't semctl\n");
-    }
+	}
 	return (semid);
 }
 

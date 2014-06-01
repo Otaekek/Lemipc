@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   place.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/01 17:38:02 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 17:40:27 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/06/01 22:50:46 by sconso            #+#    #+#             */
+/*   Updated: 2014/06/01 22:51:18 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@
 
 void				place(t_info *info)
 {
-	int 			i;
 	int				nb;
 	t_game			*game;
 
-	i = 0;
 	game = info->game;
 	srand(time(NULL) + rand());
 	nb = rand() % (game->width * game->height);
