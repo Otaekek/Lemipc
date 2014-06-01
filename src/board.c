@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/01 22:42:37 by sconso            #+#    #+#             */
-/*   Updated: 2014/06/01 22:43:26 by sconso           ###   ########.fr       */
+/*   Updated: 2014/06/01 22:59:41 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static void		print_player(int team)
 	ft_putstr("\033[3");
 	ft_putstr(c);
 	ft_putstr("m");
+	free(c);
+	c = ft_itoa(team);
 	ft_putstr(c);
 	ft_putstr("\033[0m ");
 	free(c);
