@@ -6,7 +6,7 @@
 /*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/01 17:28:52 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 20:36:55 by Myrkskog         ###   ########.fr       */
+/*   Updated: 2014/06/01 21:13:42 by Myrkskog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <sys/msg.h>
 #include <stdlib.h>
 
-void		shmclear(t_info **info, char state)
+void			shmclear(t_info **info, char state)
 {
 	print_board((*info)->game, 1);
 	(*info)->game->players--;
