@@ -6,7 +6,7 @@
 /*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/31 14:39:06 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 17:44:01 by Myrkskog         ###   ########.fr       */
+/*   Updated: 2014/06/01 20:19:36 by Myrkskog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define DOWN 2
 # define LEFT 3
 # define RIGHT 4
-# define TIMEOUT 500000
+# define TIMEOUT 1500000
 
 # include <structs.h>
 # include <sys/types.h>
@@ -32,7 +32,7 @@ void		print_board(t_game *game, char clean);
 /*
 ** clear.c
 */
-void		shmclear(t_info *info, char state);
+void		shmclear(t_info **info, char state);
 
 /*
 ** find_enemy.c
@@ -54,6 +54,13 @@ int			v_find(t_info *info, t_coord c);
 */
 void		ft_exit(char *str);
 void		ft_assert(int test, char *str);
+
+/*
+** ft_msgq.c
+*/
+void		tell(t_info *info, int y, int x);
+void		listen_lead(t_info *info);
+int			msgq_init(t_info *info, char *str);
 
 /*
 ** ft_signal.c

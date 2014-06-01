@@ -6,7 +6,7 @@
 #    By: sconso <sconso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/12 18:13:08 by sconso            #+#    #+#              #
-#    Updated: 2014/06/01 17:41:18 by Myrkskog         ###   ########.fr        #
+#    Updated: 2014/06/01 19:10:59 by Myrkskog         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -22,6 +22,7 @@ FILES = src/lemipc.c		\
 		src/board.c			\
 		src/clear.c			\
 		src/ft_errors.c		\
+		src/ft_msgq.c		\
 		src/ft_signal.c		\
 		src/find_enemy.c	\
 		src/getters.c		\

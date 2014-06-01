@@ -6,7 +6,7 @@
 /*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/01 17:25:13 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 17:26:15 by Myrkskog         ###   ########.fr       */
+/*   Updated: 2014/06/01 18:56:49 by Myrkskog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void		test_cases(t_info *info, int x, int y, int team)
 	if (y + 1 < info->game->height && x + 1 < info->game->width)
 		check += compare_team(team, info->game->map[y + 1][x + 1]);
 	if (check >= 2)
-		shmclear(info, 0);
+		shmclear(&info, 0);
 }
 
 void			is_dead(t_info *info)

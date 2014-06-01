@@ -6,7 +6,7 @@
 /*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/01 17:31:06 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 17:35:18 by Myrkskog         ###   ########.fr       */
+/*   Updated: 2014/06/01 20:48:40 by Myrkskog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,14 @@ static t_game	*shm_init(char **av, int *shmid)
 		game->height = HEIGHT;
 		game->players = 1;
 		init_map(game);
-		ft_putstr("Memory shared !\n");
+		ft_putstr("Initialized the game !\n");
 	}
 	else
 	{
 		if ((game = (t_game *)shmat(*shmid, NULL, 0)) == (t_game *) -1)
 			ft_exit("Can't shmat\n");
 		game->players++;
+		ft_putstr("Hello !\n");
 	}
 	return (game);
 }
@@ -94,6 +95,9 @@ t_info			*init(int ac, char **av)
 	info = init_info(av[1], game);
 	info->shmid = shmid;
 	info->semid = semid;
+	info->msgqid = msgq_init(info, av[0]);
+	if (info->game->players >= info->game->width * info->game->height)
+		shmclear(&info, 4);
 	place(info);
 	get_info(info);
 	return (info);

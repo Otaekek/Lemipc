@@ -6,7 +6,7 @@
 /*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/01 17:01:46 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/06/01 17:11:33 by Myrkskog         ###   ########.fr       */
+/*   Updated: 2014/06/01 20:52:59 by Myrkskog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		clear_map(t_game *game)
 
 	i = -1;
 	while (++i <= game->height)
-		ft_putstr("\r\033[K\033[A1\r");
+		ft_putstr("\r\033[K\033[1A\r");
 }
 
 void			print_board(t_game *game, char clean)

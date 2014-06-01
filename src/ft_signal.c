@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/12 18:13:58 by sconso            #+#    #+#             */
-/*   Updated: 2014/06/01 16:21:14 by Myrkskog         ###   ########.fr       */
+/*   Updated: 2014/06/01 18:58:26 by Myrkskog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,19 @@
 
 static void		ft_handler(int s)
 {
+	t_info		*info;
+
+	info = get_info(NULL);
 	if (s == SIGINT || s == SIGTERM || s == SIGQUIT || s == SIGABRT)
-		shmclear(get_info(NULL), 2);
+		shmclear(&info, 2);
 	else if (s == SIGKILL || s == SIGHUP)
-		shmclear(get_info(NULL), 2);
+		shmclear(&info, 2);
 	else if (s == SIGILL || s == SIGTRAP || s == SIGFPE || s == SIGBUS)
-		shmclear(get_info(NULL), 3);
+		shmclear(&info, 3);
 	else if (s == SIGSEGV || s == SIGSYS || s == SIGPIPE)
-		shmclear(get_info(NULL), 3);
+		shmclear(&info, 3);
 	else if (s == SIGTTIN || s == SIGTTOU || s == SIGXCPU || s == SIGXFSZ)
-		shmclear(get_info(NULL), 3);
+		shmclear(&info, 3);
 }
 
 
